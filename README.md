@@ -14,6 +14,12 @@ There will be some default types of blocks and later on, as the plugin develops 
 - Longjump
 - Trampoline
 - Forward Jump
+- Solid
+- Glass
+- Command
+- Death
+- No Fall Damage
+- Give
 
 ##Config
 ###Cvars:
