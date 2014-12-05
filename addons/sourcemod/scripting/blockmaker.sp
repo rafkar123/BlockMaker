@@ -31,5 +31,6 @@ public OnPluginStart() {
 	Basically gets the new values and saves them.
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 public OnCvarChanged(Handle:cvar, const String:oldVal[], const String:newVal[]) {
-	g_bEnabled = StrEqual(newVal, "0", false) ? false : true;
+	if(cvar == g_hEnabled)
+		g_bEnabled = StrEqual(newVal, "0", false) ? false : true;
 }
