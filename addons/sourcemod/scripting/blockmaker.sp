@@ -24,6 +24,9 @@ public OnPluginStart() {
 	//Version ConVar
 	CreateConVar("sm_blockmaker_version", PLUGIN_VERSION, "Block Maker Version", FCVAR_PLUGIN|FCVAR_SPONLY|FCVAR_REPLICATED|FCVAR_NOTIFY);
 	
+	//Admin Commands
+	RegAdminCmd("sm_blockmaker", Cmd_Blockmaker, ADMFLAG_ROOT);
+	RegAdminCmd("sm_createblock", Cmd_CreateBlock, ADMFLAG_ROOT);
 }
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -33,4 +36,24 @@ public OnPluginStart() {
 public OnCvarChanged(Handle:cvar, const String:oldVal[], const String:newVal[]) {
 	if(cvar == g_hEnabled)
 		g_bEnabled = StrEqual(newVal, "0", false) ? false : true;
+}
+
+public Action:Cmd_Blockmaker(client, args)
+{
+	if(!g_bEnabled)
+		return Plugin_Handled;
+	
+	// Todo...open easy blockmaker menu
+	
+	return Plugin_Handled;
+}
+
+public Action:Cmd_CreateBlock(client, args)
+{
+	if(!g_bEnabled)
+		return Plugin_Handled;
+	
+	// Todo...create block (advanced)
+	
+	return Plugin_Handled;
 }
