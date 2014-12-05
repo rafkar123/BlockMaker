@@ -46,8 +46,12 @@ Unlike other plugins the convars in this one will be handled in a key-value. The
 - skin - If there is an extra skin on the model you want.
 - color - Initial color of the block
 - seccolor - Color of the block it turns into when the action is performed.
-- ^^^^^2 - Adding an increasing number will parent a new prop to the entity
-- collision2 - An extra property will make the prop that is parented to the block no collidable.
+- sound - Sound played when a player touches the block
+- secsound - Sound played when the block re-actives (useful for bhop platforms).
+- attachments: - list of props that will be parented to the block
+  - model
+  - offset - relative to the block it self
+  - angle - since the prop is parented it will be created on the block before the main block is rotated
 - type - Certain type that is accessible in the Block-Maker version (see below)
 - arg - If the type asks for an argument (usually does)
 
@@ -80,16 +84,18 @@ Unlike other plugins the convars in this one will be handled in a key-value. The
    - etc (more thought of later lol)
 - death - Kills the player instantly
 - nfall - Player takes no fall damage from this block. (tracerays from a certain distance?)
-- giveweapon - Gives a player a certain weapon (ex: "arg" "weapon_awp;1")
- - "classname; bullets" - Gives the touching player what ever this is.
-- giveitem - Gives a player a certain weapon (ex: "arg" "weapon_flashbang")
+- giveweapon - Gives a player a certain weapon (ex: "arg" "weapon_awp;1;0")
+ - "classname; clip; reserve ammo" - Gives the touching player what ever this is.
+- giveitem - Gives a player a certain weapon (ex: "arg" "weapon_flashbang;1")
  - "classname; amount" - Gives the touching player what ever this is.
 - damage - Damages the player over time
- - "health; intervall" - 
+ - "damage; amount"
 - heal - Heals the player over time
- - "health; intervall" - 
+ - "health; amount; cap" - cap is option, and will default to 100
 - nuke - Kills all players on the opposite team
 - speed - Gives a player a speed buff for an adjustable duration
  - "multiplier ; duration"
 - stealth - Makes the player invisible for an adjustable duration
- - "duration" - 
+ - "duration"
+- camo - Makes the player a skin from the other team, a cvar will be needed since cs:go certain maps can have different skins, ex: use skin from a random opposing team member.
+ - "duration"

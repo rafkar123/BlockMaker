@@ -21,13 +21,39 @@ enum BlockConfig {
 	String:BlockName[32],
 	String:BlockModel[255],
 	Float:BlockOffset[3],
-	Float:BlockRotation[3],
+	Float:BlockAngles[3],
 	BlockSkin,
+	//This point below we will need to save these per-block for the saving mechanics. (we cant get EntProp data for these.)
+	String:BlockSound[64],
+	String:BlockSound2[64],
 	BlockColor[4],
+	BlockColor2[4],
 	BlockType,
 	String:BlockArg[64],
+	BlockAttCount, //a count of the attachments for the block temp.
+	BlockAtt[2], //max of 2 attachments per block seems fair? (we have a limited amount of entities) This will be the entity reference of the attached prop.
 }
 new blockTemplates[25][BlockConfig];
+
+/*
+Should we use an Enum struct to hold the data for each entity?
+Or have a variable for each entity?
+"
+enum BlockStruct {
+	String:BlockSound[64],
+	String:BlockSound2[64],
+	BlockColor[4],
+	BlockColor2[4],
+	BlockType,
+	String:BlockArg[64],
+	BlockAttCount,
+	BlockAtt[2],
+}
+new blocks[2048][BlockStruct];
+new Handle:playerBlocks[MAXPLAYERS+1] = INVALID_HANDLE;
+"
+And have a CreateArray(); which hold the entity indices for all the blocks a player owns, which will reflect the 'blocks' variable
+*/
 
 public OnPluginStart() {
 
